@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
+import FilterableProductTable from './components/FilterableProductTable'
+import jsondata from './data.json'
+import SearchBar from './components/SearchBar'
 
 function App() {
+  const [searchBar, setSearch] = useState("")
+
+  const handleFilter = (query) => {
+    setSearch(query);
+
+    if (query === "") {
+    }
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>IronStore</h1>
+        <FilterableProductTable products={ jsondata.data } />
     </div>
   );
 }
